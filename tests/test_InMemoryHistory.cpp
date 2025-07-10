@@ -57,4 +57,14 @@ namespace calc {
         ASSERT_EQ(all_ops.size(), entries.size());
     }
 
+    // Добавление пустой истории
+    TEST_F(InMemoryHistoryTest, AddEmptyEntry_Throws) {
+        EXPECT_THROW(history.AddEntry(""), std::invalid_argument);
+    }
+
+    // Получение нуля последних операций
+    TEST_F(InMemoryHistoryTest, GetZeroOperations_Throws) {
+        EXPECT_THROW(history.GetLastOperations(0), std::out_of_range);
+    }
+
 } // namespace calc

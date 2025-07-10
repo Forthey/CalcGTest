@@ -111,11 +111,7 @@ namespace calc {
 
     // Проверка деления на ноль
     TEST_F(SimpleCalculatorTest, Divide_ByZero_ThrowsException_NotSignal) {
-        try {
-            calculator.Divide(1, 0);
-            FAIL() << "Expected std::exception";
-        } catch (const std::exception&) {
-            SUCCEED();
-        }
+        EXPECT_CALL(mockHistory, AddEntry).Times(0);
+        EXPECT_THROW(calculator.Divide(1, 0), std::invalid_argument);
     }
 } // namespace calc
