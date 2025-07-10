@@ -10,3 +10,5 @@ add_library(CalcLib
         IHistory.h
         InMemoryHistory.h InMemoryHistory.cpp
 )
+
+include(tests/CMakeLists.txt)
